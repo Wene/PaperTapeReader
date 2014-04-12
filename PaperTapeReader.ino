@@ -10,7 +10,7 @@ unsigned int errorCount = 0;
 void setup()
 {
   // initialize serial communication at 9600 bits per second:
-  Serial.begin(19200);
+  Serial.begin(115200);
   
   // initialize the input pins
   pinMode(2, INPUT); // bit 0
@@ -66,6 +66,9 @@ void loop()
       case 'D':
         mode = debug;
         Serial.println("Enter debug mode. Press a key to exit.");
+        Serial.println();
+        Serial.println("binary  \thex\tdecimal\tASCII");
+        Serial.println("------  \t---\t-------\t-----");
         break;
       case 'b':
       case 'B':    
@@ -115,7 +118,7 @@ void loop()
       {
         bitWrite(byte7, i, bit[i]);
       }
-      
+
       switch(mode)
       {
         case debug:
@@ -131,6 +134,11 @@ void loop()
           Serial.print(byte8, HEX);
           Serial.print("\t");
           Serial.print(byte8, DEC);
+          Serial.print("\t");
+          if(byte7 > 31 && byte7 < 127)
+          {
+            Serial.write(byte7);
+          }
           Serial.println();
           break;
         case ascii:
