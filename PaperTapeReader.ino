@@ -135,12 +135,15 @@ void loop()
           Serial.print("\t");
           Serial.print(byte8, DEC);
           Serial.print("\t");
+          
+          //print the ASCII character only if it is a human readable character
           if(byte7 > 31 && byte7 < 127)
           {
             Serial.write(byte7);
           }
           Serial.println();
           break;
+          
         case ascii:
           //ignore zeroes
           if(byte7)
@@ -158,11 +161,13 @@ void loop()
             Serial.write(byte7);
           }
           break;
+          
         case binary:
           Serial.write(byte8);
           break;
       }
       
+      //avoid double read
       delay(3);
     }
   }
