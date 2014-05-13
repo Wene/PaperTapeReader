@@ -83,7 +83,7 @@ unsigned char baudot2ascii(unsigned char inchar)
       case 23:  outchar = '/';   break;
       case 24:  outchar = '-';   break;
       case 25:  outchar = '2';   break;
-      case 26:  outchar = '\a''; break; //Bell
+      case 26:  outchar = '\a'; break; //Bell
       //27 is shift to figures. Ignored because still in this mode.
       case 28:  outchar = '7';   break;
       case 29:  outchar = '1';   break;
