@@ -3,7 +3,8 @@ PaperTapeReader
 
 This software is written for Arduino boards and turn it into a
 Control unit replacement for FACIT Paper tape reader. In the current
-state three read modes are available: debug, binary and ASCII.
+state 4 read modes are available: debug, binary, 7 bit ASCII and
+5 bit Baudot.
 
 Connect the digital IO pins 2 to 10 directly to the reader. The pins
 2 to 9 are for reading the bits 0 to 7. Pin 10 is for the clock signal
@@ -22,4 +23,5 @@ cat /dev/ttyUSB0 > filename
 
 To finish the transfer press ^C.
 
-In ASCII mode, after reading, the number of read errors will be displayed.
+In ASCII mode, after reading, the number of read errors will be
+displayed. (assuming the 8. bit is used for checksum.)
