@@ -62,7 +62,7 @@ unsigned char baudot2ascii(unsigned char inchar)
       case 2:   outchar = 13;    break; //CR
       case 3:   outchar = '9';   break;
       case 4:   outchar = ' ';   break;
-      case 5:   outchar = ' ';   break; //unused od #
+      case 5:   outchar = ' ';   break; //unused or #
       case 6:   outchar = ',';   break;
       case 7:   outchar = '.';   break;
       case 8:   outchar = 10;    break; //LF
@@ -97,7 +97,7 @@ unsigned char baudot2ascii(unsigned char inchar)
 
 void setup()
 {
-  // initialize serial communication at 9600 bits per second:
+  // initialize serial communication at 115200 bits per second:
   Serial.begin(115200);
   
   // initialize the input pins
