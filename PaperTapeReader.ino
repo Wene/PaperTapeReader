@@ -234,15 +234,30 @@ void loop()
           Serial.print("\t");
         
           //print in Hex and Dec
+          //fill with 0 if the value is below 16
+          if(byte8 < 16)
+          {
+            Serial.print(0);
+          }
           Serial.print(byte8, HEX);
           Serial.print("\t");
+          //fill with at least one 0 if the value is below 100
+          if(byte8 < 100)
+          {
+            Serial.print(0);
+          }
+          //add another 0 if the value is below 10
+          if(byte8 < 10)
+          {
+            Serial.print(0);
+          }
           Serial.print(byte8, DEC);
           Serial.print("\t");
           
           //print the ASCII character only if it is a human readable character
-          if(byte7 > 31 && byte7 < 127)
+          if(byte8 > 31 && byte8 < 127)
           {
-            Serial.write(byte7);
+            Serial.write(byte8);
           }
           Serial.println();
           break;
