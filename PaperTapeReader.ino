@@ -21,13 +21,13 @@ unsigned char baudot2ascii(unsigned char inchar)
     switch(inchar)
     {
       case 1:   outchar = 't';   break;
-      case 2:   outchar = 13;    break; //CR
+      case 2:   outchar = 13;    break;  // CR
       case 3:   outchar = 'o';   break;
-      case 4:   outchar = ' ';   break; //space
+      case 4:   outchar = ' ';   break;  // space
       case 5:   outchar = 'h';   break;
       case 6:   outchar = 'n';   break;
       case 7:   outchar = 'm';   break;
-      case 8:   outchar = 10;    break; //LF
+      case 8:   outchar = 10;    break;  // LF
       case 9:   outchar = 'l';   break;
       case 10:  outchar = 'r';   break;
       case 11:  outchar = 'g';   break;
@@ -50,7 +50,7 @@ unsigned char baudot2ascii(unsigned char inchar)
       case 28:  outchar = 'u';   break;
       case 29:  outchar = 'q';   break;
       case 30:  outchar = 'k';   break;
-      //31 is shift to letters. Ignored because still in this mode.
+      case 31:  outchar = 127;   break;  // 31 is shift to letters. Interpret multiple shifts in a row as DEL.
       default:  outchar = 0;     break;
     }
   }
@@ -59,32 +59,32 @@ unsigned char baudot2ascii(unsigned char inchar)
     switch(inchar)
     {
       case 1:   outchar = '5';   break;
-      case 2:   outchar = 13;    break; //CR
+      case 2:   outchar = 13;    break;  // CR
       case 3:   outchar = '9';   break;
       case 4:   outchar = ' ';   break;
-      case 5:   outchar = ' ';   break; //unused or #
+      case 5:   outchar = ' ';   break;  // unused or #
       case 6:   outchar = ',';   break;
       case 7:   outchar = '.';   break;
-      case 8:   outchar = 10;    break; //LF
+      case 8:   outchar = 10;    break;  // LF
       case 9:   outchar = ')';   break;
       case 10:  outchar = '4';   break;
-      case 11:  outchar = ' ';   break; //unused or &
+      case 11:  outchar = ' ';   break;  // unused or &
       case 12:  outchar = '8';   break;
       case 13:  outchar = '0';   break;
       case 14:  outchar = ':';   break;
       case 15:  outchar = '=';   break;
       case 16:  outchar = '3';   break;
       case 17:  outchar = '+';   break;
-      case 18:  outchar = 5;     break; //Who are You? -> ASCII representation ENQuiry
+      case 18:  outchar = 5;     break;  // Who are You? -> ASCII representation ENQuiry
       case 19:  outchar = '?';   break;
       case 20:  outchar = '\'';  break;
       case 21:  outchar = '6';   break;
-      case 22:  outchar = ' ';   break; //unused or !
+      case 22:  outchar = ' ';   break;  // unused or !
       case 23:  outchar = '/';   break;
       case 24:  outchar = '-';   break;
       case 25:  outchar = '2';   break;
-      case 26:  outchar = '\a'; break; //Bell
-      //27 is shift to figures. Ignored because still in this mode.
+      case 26:  outchar = '\a';  break;  // Bell
+      case 27:  outchar = 127;   break;  // 27 is shift to figures. Interpret multiple shifts in a row as DEL.
       case 28:  outchar = '7';   break;
       case 29:  outchar = '1';   break;
       case 30:  outchar = '(';   break;
