@@ -11,8 +11,8 @@ baudotMode bMode = letters;
 
 unsigned char baudot2ascii(unsigned char inchar)
 {
-  //remove the last 3 bits, which are allways 1 by reading 5 bit code
-  inchar -= 224;
+  // mask the highest 3 bits. They are not used in baudot.
+  inchar &= 0b00011111;
   
   unsigned char outchar = 0;
   
